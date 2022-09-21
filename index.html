@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+ 
+  <body>
+    <h2>JavaScript Class Inheritance</h2>
+ 
+    <label for="Father name">Father's name:</label><br />
+    <input type="text" id="textt" name="fname" value="" /><br />
+ 
+    <label for="number">Roll number:</label><br />
+    <input type="text" id="text" name="rollno" /><br /><br />
+ 
+    <button type="submit" onclick="return checkError()">Submit</button>
+  </body>
+  <script>
+    class Person {
+      constructor(fatname) {
+        this.fatame = fatname;
+      }
+      override() {
+   
+   console.log(`${this.fatame} is the father of a student`);
+ }
+
+    }
+ 
+    class Student extends Person {
+      constructor(fatname, rollnos) {
+        super(fatname);
+        this.number = rollnos;
+      }
+      override() {
+    super.override(); // call parent stop 
+      }
+  }
+
+
+
+    
+ 
+    const obj = new Student("john", 7);
+    console.log("Output: ", obj);
+ 
+    const checkError = () => {
+      const value = document.getElementById("text").value;
+      const valuee = document.getElementById("textt").value;
+      console.log(value);
+      console.log(valuee);
+      obj.override();
+      try {
+    if(!value || value === "0") throw "Invalid Input";
+    if(!valuee || valuee === "0") throw "not a number";
+   
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+    };
+  </script>
+</html>
